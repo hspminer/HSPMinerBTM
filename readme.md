@@ -2,99 +2,92 @@
 
 # HSPMiner
 
-用于显卡GPU的`Bytom(比原链)`挖矿软件。
+Nvidia GPU Miner for `Bytom(比原链)`mining.
 
-## 下载地址
+## Download
 
-[从这里下载](https://github.com/hspminer/HSPMinerBTM/releases)
+[Download here](https://github.com/hspminer/HSPMinerBTM/releases)
 
-## 社区支持
+## Community support
 
-官方QQ群： 870349675
+QQ： 870349675
 
-## 参考算力（默认频率）
+## Performance (stock frequency)
 
-| 算法             |  币种   | P106-100  |  P104-8G   |  1070ti  |  1080ti  |   2080   |
+| Algorithm        |  Coin   | P106-100  |  P104-8G   |  1070ti  |  1080ti  |   2080   |
 | :--------------- | :-----: | :-------: | :--------: | :------: | :------: | :------: |
-| ...           |   ...   |   ...   |   ...    |  ...   |   ...   |   ...    |
+| tensority        |   BTM   |   1,900   |    3000    |  3,400   |  5,000   |  11,500  |
 
 
-## 功能特点
+## Features
 
-- 支持Windows和Linux
-- 支持备用矿池的设置
-- 支持SSL方式连接矿池
-- 开发手续费:
-  - 
-
-
-## 配置需求
-
-- win7,win10,Linux系统
-  - Nvidia,10系列显卡,比如1030,1050,1060,1070,1080,1080ti
-  - Nvidia 驱动版本>398
-
-- 显卡参数需求:
-
-|       算法       |  币种   | Compute Capability | 显存 (Win7 & Linux) | 显存 (Win10) |
-| :--------------: | :-----: | :----------------: | :-----------------: | :----------: |
+* Support Windows & Linux.
+* Support backup mining pool configuration.
+* Support SSL connection to mining pools.
+* Dev Fee: 
+  * tensority_ethash
 
 
-#使用方法
-- Windows系统
-  - 使用记事本打开run.cmd文件
-  - 替换-bwal 后的钱包地址
-  - (可选)替换-bworker 后的旷工名称(一般用于区分机器)
-  - (可选)替换-bpool 后面的矿池地址和端口
-  - (可选)替换-bpsw 后面的连接矿池的密码
-  - 保存,点击启动run.cmd
-  - (可选)点击WebMonitor.cmd启动浏览器(或直接启动浏览器),可查看挖矿状态(-api参数存在情况下)
-- Linux系统
-  - 使用文本编辑器打开run.sh文件
-  - 替换-bwal 后的钱包地址
-  - (可选)替换-bworker 后的旷工名称(一般用于区分机器)
-  - (可选)替换-bpool 后面的矿池地址和端口
-  - (可选)替换-bpsw 后面的连接矿池的密码
-  - 保存,控制台运行./run.sh
-  - (可选)WebMonitor.sh启动浏览器(或直接启动浏览器),可查看挖矿状态(-api参数存在情况下)
+## Requirements
+
+- win7,win10,Linux
+  - Nvidia, 10 series graphics cards, such as 1030, 1050, 1060, 1070, 1080, 1080ti
+  - Nvidia driver version >398
+
+- GPU Specific Requirements:
+
+|    Algorithm     |  Coin   | Compute Capability | Memory (Win7 & Linux) | Memory (Win10) |
+| :--------------: | :-----: | :----------------: | :-------------------: | :------------: |
+|    tensority     |   BTM   |   6.1, 7.0, 7.5    |          1GB          |      1GB       |
 
 
-## 使用样例
+#How to use
+- Windows system
+  - Open the run.cmd file with Notepad
+  - Replace wallet address after -bwal
+  - (Optional) Replace the as-built name after -bworker (usually used to distinguish machines)
+  - (Optional) Replace the pool address and port behind -bpool
+  - (Optional) Replace the password for the connection pool behind -bpsw
+  - Save, click to start run.cmd
+  - (Optional) Click WebMonitor.cmd to launch the browser (or launch the browser directly) to view the mining status (in the presence of the -api parameter)
+
+- Linux system
+  - Open the run.sh file with a text editor
+  - Replace wallet address after -bwal
+  - (Optional) Replace the as-built name after -bworker (usually used to distinguish machines)
+  - (Optional) Replace the pool address and port behind -bpool
+  - (Optional) Replace the password for the connection pool behind -bpsw
+  - Save, console run. /run.sh
+  - (Optional) WebMonitor.sh launches the browser (or launches the browser directly) to view the mining status (in the presence of the -api parameter)
+
+
+## Sample Usages
 
 #### BTM
 
-- **f2pool:** HSPMiner.exe -bpool btm.f2pool.com:9221 -bwal  {替换钱包地址} -bworker {替换旷工名称} -bpsw {替换密码} -logfile -api 0.0.0.0:16666
-
-## 命令行参数
--	-bwal		挖Bytom钱包地址
--	-bworker	挖Bytom旷工名称
--	-bpool		挖Bytom矿池地址,可加tls://pool_url:port,启用TLS连接
--	-bpsw		挖Bytom矿池密码
--	-bdevice	挖Bytom启用的设备,默认为全部设备,可用-bdevice 0,2,4来限制只在GPU0,2,4上运行
-
-##运行相关:
--	-api		启用网络监控的地址,比如:192.168.1.2:16666,可用浏览器访问http://192.168.1.2:16666,监控矿机运行
--	-logfile	启用log文件,默认为根据时间生成文件名称,后面可跟文件名称来指定文件,比如-logfile hspminer.log
--	-hide		启动程序后立即隐藏界面,注意会在后台运行,如果开了api接口，可点击WebMonitor.cmd启动浏览器监控(Linux下不可用)
-
-## API查询接口
-
-### 网页监控
-
-在浏览器中打开 http://api_host:port/ 启动网页监控.
+- **f2pool:** HSPMiner.exe -bpool btm.f2pool.com:9221 -bwal bm1q43kya8xnmfas5pk79nhhnj7656g0jxwn9mdgyq -bworker default -bpsw passd -logfile -api 127.0.0.1:16666
 
 
-## FAQ
+## CMD options：
+-	-bwal		The Bytom Wallet Address
+-	-bworker	The worker name of Bytom
+-	-bpool		The Bytom pool address, add tls://pool_url:port to enable TLS connection
+-	-bpsw		The Bytom mine password
+-	-bdevice	Dig the devices enabled by Bytom. The default is all devices. You can use -bdevice 0, 2, 4 to limit the operation on GPU0, 2, and 4.
+
+##Run information:
+-	-api		Enable the network monitoring address, such as: 192.168.1.2:16666, use the browser to access http://192.168.1.2:16666, monitor the mining machine operation
+-	-logfile	Enable the log file, the default is to generate the file name according to the time, followed by the file name to specify the file, such as -logfile hspminer.log
+-	-hide		Hide the interface immediately after starting the program, note that it will run in the background. If you open the api interface, you can click WebMonitor.cmd to start the browser monitoring (not available under Linux)
+
+### Web Monitor
+
+Open http://api_host:port/ in your browser to use web monitor.
 
 
-#### 为什么我的矿池算力比本地算力低?
-
-- `矿池的显示算力`
-
-
-## 修改记录
+## Change Log
 
 #### HSPMinerBTM 2.0.1 2019/1/16
 
-- Fix:修正一些bug
+- Fix:Fix some bugs
 
